@@ -24,22 +24,18 @@ def mutate(swarmalika):
         swarmalika[index] = random.choice(["Ma", "Pa", "Ni", "Dh"])
     return swarmalika
 
-# Initial population
 population = [random.choice(swarmalikas) for _ in range(10)]
 
 generations = 1000
 for _ in range(generations):
-    # Evaluate fitness
+    
     fitness_values = [fitness(swarmalika) for swarmalika in population]
 
-    # Check for solution
+    
     if any(fitness_value >= 3 for fitness_value in fitness_values):
         break
 
-    # Selection
     selected_population = [population[i] for i in range(len(population)) if fitness_values[i] >= 3]
-
-    # Crossover
     new_population = []
     for _ in range(len(population)):
         parent1 = random.choice(selected_population)
@@ -47,7 +43,6 @@ for _ in range(generations):
         new_swarmalika = crossover(parent1, parent2)
         new_population.append(new_swarmalika)
 
-    # Mutation
     for i in range(len(new_population)):
         if random.random() < 0.1:
             new_population[i] = mutate(new_population[i])
