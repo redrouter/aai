@@ -111,4 +111,5 @@ for i in range(0,4):
 for i in range(0,3):
     print(Prod1[i] ,"/",elt[i],end=' + ')
 for i in range(3,4):
-    print(Prod1[i] ,"/",elt[i],end=' ')
+    print(Prod1[i] ,"/",elt[i],end=' ')
+
